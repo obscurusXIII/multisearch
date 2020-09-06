@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MultiSearch</title>
+<link rel="stylesheet" href="style.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body ondragstart="return false;">
+
+<div class="cont">
+<div class="img"><img src="images/world.png" alt="World Wide Web"></div>
+<div>
+<p>
+    MULTI<span class="txt-type" data-wait="3000" data-words='["SAECH","SEARCH"]'>SEARCH</span></p>
+</div>
+<div class="search">
+<input id="boxu" autofocus="" type="text"> 
+<img src="images/search.png" id="searchimg">
+</div>
+</div>
+
+<script>
+document.querySelector("#boxu").addEventListener("keydown", function(e){
+    searchy(e)
+})
+document.querySelector("#searchimg").addEventListener("click", function(e){
+    searchy(e,true)
+})
+function searchy(e,clicked)
+{
+    if (e.keyCode == 13 || clicked == true)
+    {
+        let q = document.getElementById("boxu").value;
+        multiSearch(q);
+        document.getElementById("boxu").value = "";
+    }
+}
+function multiSearch(q){
+    if (!/\s/.test(q)) window.open(`https://www.etymonline.com/search?q=${q}`)
+    window.open(`https://en.wikipedia.org/w/index.php?search=${q}&title=Special%3ASearch&fulltext=Search&ns0=1`)
+    window.open(`https://www.google.com/search?as_st=y&tbm=isch&hl=en&as_q=${q}&as_epq=&as_oq=&as_eq=&imgsz=&imgar=&imgc=&imgcolor=&imgtype=&cr=countryJP&as_sitesearch=&safe=images&as_filetype=&as_rights=`)
+    window.open(`https://duckduckgo.com/?t=ffab&q=${q}&ia=web`)
+    }  
+</script>
+<script src="typewriter.js"></script>
+
+
+	</body>
+	
+</html>
