@@ -31,7 +31,7 @@ function searchy(e,clicked)
     if (e.keyCode == 13 || clicked == true)
     {
         let q = document.getElementById("boxu").value;
-        multiSearch(q);
+        if (q != "") multiSearch(q);
         document.getElementById("boxu").value = "";
     }
 }
